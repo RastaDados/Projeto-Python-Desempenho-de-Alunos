@@ -9,6 +9,7 @@ Este projeto tem como objetivo analisar dados acadêmicos de estudantes, explora
 
 <h1>Entendendo a base de Dados</h1>
 Os dados contêm as seguintes colunas:
+
 <br>
 
 <b>Socioeconomic Score:</b> 
