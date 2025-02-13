@@ -195,6 +195,7 @@ st.write(f"Erro Médio Absoluto do Modelo: {mae:.2f}")
 <br>
 
 <h3><b>Resultado do modelo</b></h3>
+
 ![Graf 1 pag 3](https://github.com/user-attachments/assets/6cbccd38-2f87-402e-b3c1-d72543e3fc47)
 
 <hr>
