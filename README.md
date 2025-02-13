@@ -15,23 +15,23 @@ Os dados contêm as seguintes colunas:
 
 <b>Socioeconomic Score:</b> 
 
-– Índice socioeconômico dos alunos.
+- Índice socioeconômico dos alunos.
 
 <b>Study Hours:</b> 
 
-– Horas de estudo diárias.
+- Horas de estudo diárias.
 
 <b>Sleep Hours:</b> 
 
-– Horas de sono diárias.
+- Horas de sono diárias.
 
 <b>Attendance (%):</b> 
 
-– Percentual de presença nas aulas.
+- Percentual de presença nas aulas.
 
 <b>Grades:</b> 
 
-– Notas dos alunos.
+- Notas dos alunos.
 
 <hr>
 <br>
