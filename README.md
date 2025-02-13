@@ -11,23 +11,18 @@ Este projeto tem como objetivo analisar dados acadêmicos de estudantes, explora
 Os dados contêm as seguintes colunas:
 
 <b>Socioeconomic Score:</b> 
-
 – Índice socioeconômico dos alunos.
 
 <b>Study Hours:</b> 
-
 – Horas de estudo diárias.
 
 <b>Sleep Hours:</b> 
-
 – Horas de sono diárias.
 
 <b>Attendance (%):</b> 
-
 – Percentual de presença nas aulas.
 
 <b>Grades:</b> 
-
 – Notas dos alunos.
 
 2. Estrutura do Dashboard
