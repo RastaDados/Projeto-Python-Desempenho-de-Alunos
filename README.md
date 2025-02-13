@@ -82,7 +82,7 @@ df = pd.read_csv("datacsv.csv")
 
 <br>
 
-<h2><b>Criação do Menu Lateral</b></b>
+<h2><b>Criação do Menu Lateral</b></h2>
 
 A interface possui um menu lateral para seleção das páginas:
 
