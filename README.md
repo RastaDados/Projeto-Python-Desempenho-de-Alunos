@@ -8,6 +8,7 @@ Este projeto tem como objetivo analisar dados acadêmicos de estudantes, explora
 <br>
 
 <h1>Entendendo a base de Dados</h1>
+
 Os dados contêm as seguintes colunas:
 
 <br>
@@ -32,98 +33,168 @@ Os dados contêm as seguintes colunas:
 
 – Notas dos alunos.
 
-2. Estrutura do Dashboard
+<hr>
+<br>
 
-O dashboard possui três páginas principais:
+<h1>Estrutura do Dashboard</h1>
 
-Desempenho Acadêmico - Análise geral das notas e presença dos alunos.
+O dashboard possui três páginas:
 
-Hábitos dos Alunos - Estudo do impacto das horas de estudo, sono e nível socioeconômico nas notas.
+<b>Desempenho Acadêmico:</b> 
 
-Predição de Notas - Uso de Machine Learning para prever notas com base em diferentes fatores.
+- Análise geral das notas e presença dos alunos.
 
-3. Instalação e Execução
+<b>Hábitos dos Alunos:</b> 
 
-Para rodar este projeto, siga os passos:
+- Estudo do impacto das horas de estudo, sono e nível socioeconômico nas notas.
 
-3.1. Instalar dependências
+<b>Predição de Notas:</b> 
 
-pip install streamlit pandas plotly scikit-learn
+- Uso de Machine Learning para prever notas com base em diferentes fatores.
 
-3.2. Executar o dashboard
+<hr>
+<br>
 
-streamlit run nome_do_arquivo.py
+<h1>Estrutura do Código</h1>
 
-4. Estrutura do Código
-
-4.1. Importação de Bibliotecas
+<h2><b>Importação de Bibliotecas</b></h2>
 
 O projeto utiliza as seguintes bibliotecas:
 
+```python
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
+```
 
-4.2. Leitura dos Dados
+<br>
+
+<h2><b>Leitura dos Dados</h2></b>
 
 Os dados são carregados diretamente de um arquivo CSV:
 
+```python
 df = pd.read_csv("datacsv.csv")
+```
 
-4.3. Criação do Menu Lateral
+<br>
+
+<h2><b>Criação do Menu Lateral</b></b>
 
 A interface possui um menu lateral para seleção das páginas:
 
+```python
 st.sidebar.title("Dashboard Educacional")
 pagina = st.sidebar.radio("Escolha uma página:", ["Desempenho Acadêmico", "Hábitos dos Alunos", "Predição de Notas"])
+```
 
-5. Detalhamento das Páginas
+<h1>Detalhamento das Páginas</h1>
 
-5.1. Página 1: Desempenho Acadêmico
+<h2><b>Desempenho Acadêmico</b></h2>
 
-Distribuição de Notas: Histograma das notas.
+<h3><b>Distribuição de Notas</b></h3>
 
-Relação entre Presença e Notas: Gráfico de dispersão com regressão.
+```python
+ fig1 = px.histogram(df, x="Grades", nbins=20, title="Distribuição de Notas")
+    st.plotly_chart(fig1)
+```
+![Graf 1 pag 1](https://github.com/user-attachments/assets/b004a902-141d-4660-9baf-6fc6f4fed384)
 
-Boxplot das Notas: Distribuição geral das notas.
+<br>
 
-5.2. Página 2: Hábitos dos Alunos
+<h3><b>Relação entre Presença e Notas</b></h3> 
 
-Impacto das Horas de Estudo nas Notas: Gráfico de dispersão.
+```python
+ fig2 = px.scatter(df, x="Attendance (%)", y="Grades", trendline="ols", title="Relação entre Presença e Notas")
+    st.plotly_chart(fig2)
+``` 
+![Graf 2 pag 1](https://github.com/user-attachments/assets/0fc3b7bb-c034-4ce4-b474-dfa7bc8feae0)
 
-Impacto das Horas de Sono nas Notas: Análise de correlação.
+<br>
 
-Impacto do Nível Socioeconômico nas Notas: Relação entre situação financeira e desempenho.
+<h3><b>Distribuição geral das notas</b></h3>
 
-5.3. Página 3: Predição de Notas
+```python
+fig3 = px.box(df, y="Grades", title="Boxplot das Notas")
+    st.plotly_chart(fig3)
+```
+![Graf 3 pag 1](https://github.com/user-attachments/assets/1a3f7415-b334-4237-b6de-cc7235c8e822)
 
-Treinamento do Modelo: Uso de Random Forest.
+<br>
 
-Erro Médio Absoluto: Avaliação do modelo.
+<h2><b>Hábitos dos Alunos</b></h2>
 
-Interface de Previsão: Entrada de dados e retorno da nota prevista.
+<h3><b>Impacto das Horas de Estudo nas Notas</b></h3>
 
-6. Modelo de Machine Learning
+```python
+ fig4 = px.scatter(df, x="Study Hours", y="Grades", trendline="ols", title="Impacto das Horas de Estudo nas Notas")
+    st.plotly_chart(fig4)
+```
+![Graf 1 pag 2](https://github.com/user-attachments/assets/349d5730-7e59-4de3-ae18-0cc59aae6fb5)
 
-O modelo preditivo é um Random Forest Regressor, treinado com os seguintes recursos:
+<h3><b>Impacto das Horas de Sono nas Notas</b></h3>
 
+```python
+fig5 = px.scatter(df, x="Sleep Hours", y="Grades", trendline="ols", title="Impacto das Horas de Sono nas Notas")
+    st.plotly_chart(fig5)
+```
+![Graf 2 pag 2](https://github.com/user-attachments/assets/a90a7a9b-6868-4c12-9d07-392bc15d8aa4)
+
+<br>
+
+<h3><b>Impacto do Nível Socioeconômico nas Notas</b></h3>
+
+```python
+fig6 = px.scatter(df, x="Socioeconomic Score", y="Grades", trendline="ols", title="Impacto do Nível Socioeconômico nas Notas")
+    st.plotly_chart(fig6)
+
+```
+![Graf 3 pag 2](https://github.com/user-attachments/assets/2f530d13-a19a-441a-9b88-cc703ed985c4)
+
+
+<hr>
+<br>
+
+<h2><b>Predição de Notas</b></h2>
+
+- <b>Treinamento do Modelo:</b> Uso de Random Forest.
+
+- <b>Erro Médio Absoluto:</b> Avaliação do modelo.
+
+- <b>Interface de Previsão:</b> Entrada de dados e retorno da nota prevista.
+
+<br>
+
+<h2><b>Modelo de Machine Learning</b></h2>
+
+O modelo preditivo é um Random Forest Regressor, treinado da seguinte forma:
+
+```python
 X = df[["Socioeconomic Score", "Study Hours", "Sleep Hours", "Attendance (%)"]]
 y = df["Grades"]
+```
 
-Após a divisão dos dados:
+<h3><b>Após a divisão dos dados:</b></h3>
 
+```python
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
+```
 
-A avaliação do modelo é feita com o erro médio absoluto (MAE):
+<h3><b>A avaliação do modelo é feita com o erro médio absoluto (MAE):</b></h3>
 
+```python
 mae = mean_absolute_error(y_test, y_pred)
 st.write(f"Erro Médio Absoluto do Modelo: {mae:.2f}")
+```
 
-7. Conclusão
+<br>
 
-Este projeto fornece uma visão detalhada do desempenho acadêmico e oferece uma ferramenta interativa para análise e previsão de notas. O uso de Streamlit garante uma experiência dinâmica e intuitiva para os usuários. 🚀
+<h3><b>Resultado do modelo</b></h3>
+![Graf 1 pag 3](https://github.com/user-attachments/assets/6cbccd38-2f87-402e-b3c1-d72543e3fc47)
+
+<hr>
